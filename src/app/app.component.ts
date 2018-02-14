@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   constructor(public mask: AtmMaskInputService) {
   }
 ngOnInit() {
-    this.inputClass = 'form-contril';
+    this.inputClass = 'form-control';
     this.inputId = 'amountMask';
     this.placeholder = 'Enter Amount';
 }
