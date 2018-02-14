@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {isNullOrUndefined} from 'util';
 declare var $: any;
 @Injectable()
 export class AtmMaskInputService {
@@ -15,6 +16,8 @@ export class AtmMaskInputService {
    * @constructor
    */
   ATMInputMask (e, id) {
+    // console.log('Event: ', id);
+    if (isNullOrUndefined(id) || id === '') {return false};
     const getKeyValue = function (keyCode) {
       if (keyCode > 57) { // also check for num-pad keys
         keyCode -= 48;
@@ -27,12 +30,12 @@ export class AtmMaskInputService {
     if (e.keyCode === 8 && this.inputEntered.length > 0) {
       this.inputEntered = this.inputEntered.slice(0, this.inputEntered.length - 1); // remove last digit
       $('#' + id).val(this.formatNumber(this.inputEntered));
-      console.log('Original Value: ', this.unFormatAmount(this.inputEntered));
+      // console.log('Original Value: ', this.unFormatAmount(this.inputEntered));
     } else {
       const key = getKeyValue(e.keyCode);
       if (key) {
         this.inputEntered += key; // add actual digit to the input string
-        console.log('Original Value: ', this.unFormatAmount(this.inputEntered));
+        // console.log('Original Value: ', this.unFormatAmount(this.inputEntered));
         $('#' + id).val(this.formatNumber(this.inputEntered)); // format input string and set the input box value to it
       } else {
       }
@@ -46,7 +49,7 @@ export class AtmMaskInputService {
    * @returns {string}
    */
   formatNumber (value) {
-    console.log('Format value');
+    // console.log('Format value');
     if (isNaN(parseFloat(value))) {
       return '0.00'; // set value to 0.00 if input value is not valid/ not a number
     }

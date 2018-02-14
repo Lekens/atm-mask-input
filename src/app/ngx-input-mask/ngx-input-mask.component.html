@@ -1,0 +1,5 @@
+
+<div class="input-group input-group-sm">
+  <input type="text" [ngClass]="inputClass" (blur)="sendResponse()"
+         (keydown)="mask.ATMInputMask($event, inputId)" id="{{inputId}}" placeholder="{{inputPlaceholder}}" style="text-align:right">
+</div>

@@ -11,12 +11,19 @@
         <div>
           <div class="input-group input-group-sm">
             <span class="input-group-addon">$</span>
-            <input type="text" class="form-control search-query" (keydown)="mask.ATMInputMask($event, 'fieldSelected')" id="fieldSelected" placeholder="Amount" style="text-align:right">
+            <!-- all you need to do is add -->
+
+
+          <app-ngx-input-mask [inputClass]="inputClass" [inputId]="inputId" [inputPlaceholder]="placeholder" (blurEvent)="getResponse($event)"></app-ngx-input-mask>
+
+
+
+
             <span class="input-group-btn">
-              <button type="button" class="btn btn-success btn-sm" (click)="getOutput()">Save</button>
+              <button type="button" class="btn btn-success btn-sm">Save</button>
             </span>
           </div>
-          <div style="text-align: center;margin: 5px 0 1px 4px;font-size: 1.8em">Output</div>
+          <div style="text-align: center;margin: 5px 0 1px 4px;font-size: 1.8em">Output Json</div>
           <p>{{ output | json }}</p>
         </div>
       </div>

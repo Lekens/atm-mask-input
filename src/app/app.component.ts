@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AtmMaskInputService} from './services/atm-mask-input.service';
 
 @Component({
@@ -6,17 +6,25 @@ import {AtmMaskInputService} from './services/atm-mask-input.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   output: any;
+  inputClass: string;
+  placeholder: string;
+  inputId: string;
   constructor(public mask: AtmMaskInputService) {
   }
+ngOnInit() {
+    this.inputClass = 'form-contril';
+    this.inputId = 'amountMask';
+    this.placeholder = 'Enter Amount';
+}
 
   /**
-   * Get Output
+   * Listen to event from child component
+   * @param e
    */
-  getOutput() {
-   const obj =  this.mask.getValue();
-   console.log('Object: ', obj);
-   this.output = obj;
+  getResponse(e) {
+    console.log('Response: ', e);
+    this.output = e;
   }
 }
