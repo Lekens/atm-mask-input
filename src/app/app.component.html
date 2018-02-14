@@ -1,0 +1,29 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="box-container">
+  <h1 style="margin-left: 5px;">
+    ATM Mask Input
+  </h1>
+
+  <div class="col-sm-8">
+    <div class="box">
+      <div style="padding: 10px;">
+        <h6>Enter Amount</h6>
+        <div>
+          <div class="input-group input-group-sm">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control search-query" (keydown)="mask.ATMInputMask($event, 'fieldSelected')" id="fieldSelected" placeholder="Amount" style="text-align:right">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-sm" (click)="getOutput()">Save</button>
+            </span>
+          </div>
+          <div style="text-align: center;margin: 5px 0 1px 4px;font-size: 1.8em">Output</div>
+          <p>{{ output | json }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+ this place should be a page using this component
+ <atm-mask-input></atm-mask-input>
+ -->
