@@ -39,11 +39,14 @@ import {AtmMaskInputModule} from 'atm-mask-input';
 ```
 The only remaining part is to list the imported module in your application module.:
 ```js
-import {AtmMaskInputModule} from 'atm-mask-input';
+import {AtmMaskInputService} from './services/atm-mask-input.service';
+import { NgxInputMaskComponent } from './ngx-input-mask/ngx-input-mask.component';
+
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AtmMaskInputModule],  
+  imports: [AtmMaskInputModule], 
+  providers: [AtmMaskInputService], 
   bootstrap: [AppComponent]
 })
 export class AppModule {
