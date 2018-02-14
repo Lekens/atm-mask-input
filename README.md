@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.
 
-Angular4+ project that convert input text to an ATM MASK TYPE (8,999.98, 1,000,000).
+Angular4+ project that convert input text to an ATM MASK TYPE (8,999.98 --- 1,000,000.00).
 
 On input the value it automatically format the input to ATM like input.
 
